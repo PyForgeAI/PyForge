@@ -1,0 +1,26 @@
+recursive-include tools *
+
+# Package pyforge
+include pyforge/*.json
+include pyforge/gui_core/*.json
+include pyforge/gui_core/lib/*.js
+
+# Package pyforge-config
+include pyforge/config/*.pyi
+include pyforge/config/*.json
+
+# Package pyforge-core
+include pyforge/core/*.json
+include pyforge/core/config/*.json
+
+# Package pyforge-gui
+recursive-include pyforge/gui/webapp *
+include pyforge/gui/version.json
+include pyforge/gui/viselements.json
+include pyforge/gui/*.pyi
+
+# Package pyforge-rest
+include pyforge/rest/*.json
+
+# Package pyforge-templates
+recursive-include pyforge/templates *

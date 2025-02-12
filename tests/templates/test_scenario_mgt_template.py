@@ -1,0 +1,96 @@
+# Copyright 2021-2025 Avaiga Private Limited
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+# the License. You may obtain a copy of the License at
+#
+#        http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+# an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+# specific language governing permissions and limitations under the License.
+
+import os
+
+from cookiecutter.main import cookiecutter
+
+from .utils import _run_template
+
+
+def test_scenario_management_with_toml_config(tmpdir):
+    cookiecutter(
+        template="pyforge/templates/sdm",
+        output_dir=tmpdir,
+        no_input=True,
+        extra_context={
+            "Application root folder": "foo_app",
+            "Application main Python file": "main.py",
+            "Application title": "bar",
+            "With TOML Config?": "yes",
+        },
+    )
+
+    assert os.listdir(tmpdir) == ["foo_app"]
+    assert sorted(os.listdir(os.path.join(tmpdir, "foo_app"))) == sorted(
+        ["requirements.txt", ".pyforgeignore", "main.py", "algos", "config", "pages"]
+    )
+
+    assert sorted(os.listdir(os.path.join(tmpdir, "foo_app", "config"))) == sorted(
+        ["__init__.py", "config.py", "config.toml"]
+    )
+    with open(os.path.join(tmpdir, "foo_app", "config", "config.py")) as config_file:
+        assert 'Config.load("config/config.toml")' in config_file.read()
+
+    pyforge_path = os.getcwd()
+    stdout = _run_template(pyforge_path, os.path.join(tmpdir, "foo_app"), "main.py")
+
+    # Assert the message when the application is run successfully is in the stdout
+    assert "[PyForge][INFO] Configuration 'config/config.toml' successfully loaded." in stdout
+    assert "[PyForge][INFO]  * Server starting on" in stdout
+
+
+def test_scenario_management_without_toml_config(tmpdir):
+    cookiecutter(
+        template="pyforge/templates/sdm",
+        output_dir=tmpdir,
+        no_input=True,
+        extra_context={
+            "Application root folder": "foo_app",
+            "Application main Python file": "main.py",
+            "Application title": "bar",
+            "With TOML Config?": "no",
+        },
+    )
+
+    assert os.listdir(tmpdir) == ["foo_app"]
+    assert sorted(os.listdir(os.path.join(tmpdir, "foo_app"))) == sorted(
+        ["requirements.txt", ".pyforgeignore", "main.py", "algos", "config", "pages"]
+    )
+
+    assert sorted(os.listdir(os.path.join(tmpdir, "foo_app", "config"))) == sorted(["__init__.py", "config.py"])
+    with open(os.path.join(tmpdir, "foo_app", "config", "config.py")) as config_file:
+        config_content = config_file.read()
+        assert 'Config.load("config/config.toml")' not in config_content
+        assert all(x in config_content for x in ["Config.configure_csv_data_node", "Config.configure_task"])
+
+    pyforge_path = os.getcwd()
+    stdout = _run_template(pyforge_path, os.path.join(tmpdir, "foo_app"), "main.py")
+
+    # Assert the message when the application is run successfully is in the stdout
+    assert "[PyForge][INFO]  * Server starting on" in stdout
+
+
+def test_with_git(tmpdir):
+    cookiecutter(
+        template="pyforge/templates/sdm",
+        output_dir=str(tmpdir),
+        no_input=True,
+        extra_context={
+            "Application root folder": "foo_app",
+            "With a new Git repository?": "y",
+        },
+    )
+
+    assert os.listdir(tmpdir) == ["foo_app"]
+    assert sorted(os.listdir(os.path.join(tmpdir, "foo_app"))) == sorted(
+        ["requirements.txt", "main.py", ".git", ".gitignore", ".pyforgeignore", "algos", "config", "pages"]
+    )

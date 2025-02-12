@@ -1,0 +1,4 @@
+include pyforge/rest/*.json
+include *.json
+include pyforge/rest/setup.requirements.txt
+include package_desc.md

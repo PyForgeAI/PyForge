@@ -1,0 +1,7 @@
+{
+  "name": "pyforge-gui-base",
+  "version": "4.1.0",
+  "private": true,
+  "main": "./pyforge-gui-base.js",
+  "types": "./pyforge-gui-base.d.ts"
+}

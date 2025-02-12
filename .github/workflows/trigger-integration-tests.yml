@@ -1,0 +1,24 @@
+name: trigger Integration testings
+on:
+  push:
+    branches: [ develop, dev/* ]
+  pull_request:
+    branches: [ develop , dev/* ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger pyforge-integration-testing
+        uses: convictional/trigger-workflow-and-wait@v1.6.1
+        with:
+          owner: Avaiga
+          repo: pyforge-integration-testing
+          github_token: ${{secrets.TAIPY_INTEGRATION_TESTING_ACCESS_TOKEN}}
+          workflow_file_name: pyforge-trigger-tests.yml
+          ref: develop
+          wait_interval: 60
+          propagate_failure: true
+          trigger_workflow: true
+          wait_workflow: true
+          client_payload: '{"repo": "pyforge", "commitSHA": "${{ github.sha }}"}'

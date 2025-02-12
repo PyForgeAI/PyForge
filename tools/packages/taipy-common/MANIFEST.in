@@ -1,0 +1,6 @@
+include pyforge/common/*.json
+include pyforge/common/config/*.pyi
+include pyforge/common/config/*.json
+include *.json
+include pyforge/common/setup.requirements.txt
+include package_desc.md

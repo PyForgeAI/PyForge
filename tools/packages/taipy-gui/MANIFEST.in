@@ -1,0 +1,7 @@
+recursive-include pyforge/gui/webapp *
+include pyforge/gui/version.json
+include pyforge/gui/viselements.json
+include pyforge/gui/*.pyi
+include *.json
+include pyforge/gui/setup.requirements.txt
+include package_desc.md
