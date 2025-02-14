@@ -1,25 +1,25 @@
 <div align="center">
-  <a href="https://pyforge.io?utm_source=github" target="_blank">
+  <!-- <a href="https://pyforge.io?utm_source=github" target="_blank"> -->
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Avaiga/pyforge/assets/100117126/509bf101-54c2-4321-adaf-a2af63af9682">
-    <img alt="PyForge" src="https://github.com/Avaiga/pyforge/assets/100117126/4df8a733-d8d0-4893-acf0-d24ef9e8b58a" width="300" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/PyForgeAI/pyforge/assets/100117126/509bf101-54c2-4321-adaf-a2af63af9682">
+    <img alt="PyForge" src="https://github.com/PyForgeAI/pyforge/assets/100117126/4df8a733-d8d0-4893-acf0-d24ef9e8b58a" width="300" />
   </picture>
   </a>
 </div>
 </br>
-<div align="center">
+<!-- <div align="center">
     <img
         src="https://img.shields.io/github/license/Avaiga/pyforge?style=plastic&color=ff371a&labelColor=1f1f1f"
         alt="GitHub License"
         height="20px"
     />
-    <a target="_blank" href="https://github.com/Avaiga/pyforge/releases">
+    <a target="_blank" href="https://github.com/PyForgeAI/pyforge/releases">
         <img
             alt="GitHub Release"
             height="20px"
             src="https://img.shields.io/github/v/release/Avaiga/pyforge?display_name=release&style=plastic&color=ff371a&labelColor=1f1f1f"
         ></a>
-</div>
+</div> -->
 <div align="center">
    <img
       src="https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-ff371a?style=plastic&labelColor=1f1f1f"
@@ -154,7 +154,7 @@ def filter_genre(initial_dataset: pd.DataFrame, selected_genre):
 This is the execution graph of the scenario we are implementing:
 
 <p align="center">
-<img src="https://github.com/Avaiga/pyforge/raw/develop/readme_img/readme_exec_graph.png" width="600" align="center" />
+<img src="readme_img/readme_exec_graph.png" width="600" align="center" />
 </p>
 
 ### PyForge Studio
@@ -167,7 +167,7 @@ For more advanced use cases or if you prefer coding your configurations instead 
 check out the movie genre demo scenario creation with this [Demo](https://docs.pyforge.io/en/latest/gallery/articles/movie_genre_selector/).
 
 <p align="center">
-<img src="https://github.com/Avaiga/pyforge/raw/develop/readme_img/readme_demo_studio.gif" alt="Back-End Animation"  width="80%" align="center" />
+<img src="/readme_img/readme_demo_studio.gif" alt="Back-End Animation"  width="80%" align="center" />
 </p>
 
 &nbsp;
@@ -254,11 +254,11 @@ And the final result:
 
 ## ⚒️ Contributing
 
-Want to help build PyForge? Check out our [**Contributing Guide**](https://github.com/Avaiga/pyforge/blob/develop/CONTRIBUTING.md).
+Want to help build PyForge? Check out our [**Contributing Guide**](https://github.com/PyForgeAI/pyforge/blob/develop/CONTRIBUTING.md).
 
 ## 🪄 Code of Conduct
 
-Want to be part of the PyForge community? Check out our [**Code of Conduct**](https://github.com/Avaiga/pyforge/blob/develop/CODE_OF_CONDUCT.md)
+Want to be part of the PyForge community? Check out our [**Code of Conduct**](https://github.com/PyForgeAI/pyforge/blob/develop/CODE_OF_CONDUCT.md)
 
 ## 🪪 License
 
