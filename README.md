@@ -1,8 +1,8 @@
 <div align="center">
   <!-- <a href="https://pyforge.io?utm_source=github" target="_blank"> -->
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/PyForgeAI/pyforge/assets/100117126/509bf101-54c2-4321-adaf-a2af63af9682">
-    <img alt="PyForge" src="https://github.com/PyForgeAI/pyforge/assets/100117126/4df8a733-d8d0-4893-acf0-d24ef9e8b58a" width="300" />
+    <source media="(prefers-color-scheme: dark)" srcset="readme_img/taipy_logo.svg">
+    <img alt="PyForge" src="readme_img/taipy_logo.svg" width="300" />
   </picture>
   </a>
 </div>
